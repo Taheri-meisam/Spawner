@@ -1,0 +1,8 @@
+Your task is to spawn multiple objects, each with different points.
+
+For instance:
+
+A Cone has 5 points
+A Cube has 3 points
+A Cylinder has 2 points
+Then, interact with these objects, pick them up, and print out the accumulated points and number of pickups either as a log, on-screen debug, or create a UI if you have time.
