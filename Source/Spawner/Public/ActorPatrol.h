@@ -31,7 +31,10 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Waypoints")
 	TArray<AWayPointSystem*> Waypoints;
 
+
+	// moving from one way point to another 
 	void MoveToNextWaypoint(float DeltaTime);
+	// speed of the patrolling 
 	UPROPERTY(EditAnywhere, Category = "Waypoints")
 	float Speed;
 

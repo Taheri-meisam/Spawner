@@ -1,4 +1,6 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+///
+// an actor to be spawn as one of the elemnts of the array of waypoints 
+/// 
 
 #pragma once
 

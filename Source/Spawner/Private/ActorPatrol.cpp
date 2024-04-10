@@ -41,7 +41,7 @@ void AActorPatrol::MoveToNextWaypoint(float DeltaTime)
         return;
     FVector CurrentLocation = GetActorLocation();  // get the currect actor location 
     FVector TargetLocation = Waypoints[CurrentWaypointIndex]->GetActorLocation();  // get the current waypoint location // starts from index 0 
-    FVector Direction = (TargetLocation - CurrentLocation).GetSafeNormal(); // find the Normal direction that points to the target 
+    FVector Direction = (TargetLocation - CurrentLocation).GetSafeNormal(); // direction that points to the target and normalize it 
 
     FVector NewLocation = CurrentLocation + Direction * Speed * DeltaTime; // find the new location 
 

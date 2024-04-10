@@ -12,7 +12,7 @@ ASpwanActor::ASpwanActor()
 	PrimaryActorTick.bCanEverTick = false;
 	spwanBound = CreateDefaultSubobject <UBoxComponent>(TEXT("Spawn Location "));
 	RootComponent = spwanBound;
-	// spawn timer 
+	// spawn timer  min and max 
 	spawnDelayLow = 1.0f;
 	spawnDelayHigh = 5.0f;
 
@@ -22,7 +22,10 @@ ASpwanActor::ASpwanActor()
 void ASpwanActor::BeginPlay()
 {
 	Super::BeginPlay();
+	// create the first spawn delay time 
 	spawnDelay = FMath::FRandRange(spawnDelayLow, spawnDelayHigh);
+
+	//set the timer and what function to call 
 	GetWorldTimerManager().SetTimer(spawnTimer, this, &ASpwanActor::SpawnItems, spawnDelay, false);
 	
 }
@@ -40,6 +43,7 @@ UBoxComponent* ASpwanActor::retSpawnLocation()
 	
 }
 
+// get the random location in the bound 
 FVector ASpwanActor::retRandomPoints()
 {
 	FVector RandSpawnBegin = spwanBound->Bounds.Origin;
@@ -49,16 +53,20 @@ FVector ASpwanActor::retRandomPoints()
 
 void ASpwanActor::SpawnItems()
 {
+	// if there is anything to spawn 
 	if (spawnActor != NULL)
 	{
+		//get the world 
 		UWorld* const myWorld = GetWorld();
 		if (myWorld)
 		{
-			FActorSpawnParameters SpawnParam;
-			SpawnParam.Owner = this;
-			SpawnParam.Instigator = GetInstigator();
+			FActorSpawnParameters SpawnParam;  // This structure is used to pass a variety of parameters when spawning a new actor in the game.
+			SpawnParam.Owner = this; //set the owner of spawner to this actor 
+			SpawnParam.Instigator = GetInstigator(); //The Instigator is the actor that caused this actor to spawn, usually the player character or AI that initiated the action causing the spawn. GetInstigator() is a function that retrieves the instigator of the current actor.
 			FVector randLocations = retRandomPoints();
 			FRotator randRotation;
+
+			//random rotations 
 			randRotation.Yaw = FMath::FRand() * 360.0f;
 			randRotation.Roll = FMath::FRand() * 360.0f;
 			randRotation.Pitch = FMath::FRand() * 360.0f;

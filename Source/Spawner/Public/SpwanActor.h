@@ -25,12 +25,17 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 public:
+
 	UFUNCTION(BlueprintCallable, Category = "Spawning")
 	class UBoxComponent* retSpawnLocation();
+
+	// spawn boundry box 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Spawning", meta = (AllowAbstract = "true"))
 	class UBoxComponent* spwanBound;
+
 	UFUNCTION(BlueprintCallable, Category = "Spawning")
 	FVector retRandomPoints();
+
 
 	FTimerHandle spawnTimer;
 
@@ -41,13 +46,13 @@ public:
 	float  spawnDelayHigh;
 
 private:
-	float spawnDelay;
+	float spawnDelay; 
 
 
 //what to spawn 
 public :
 	UPROPERTY(EditAnywhere, Category = "Spawning")
-	TSubclassOf<class ADrop> spawnActor;
+	TSubclassOf<class ADrop> spawnActor;  // what to drop/spawn 
 	void SpawnItems();
 
 };
