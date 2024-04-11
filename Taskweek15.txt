@@ -1,3 +1,5 @@
+Task 1 :
+
 Your task is to spawn multiple objects, each with different points.
 
 For instance:
@@ -5,4 +7,11 @@ For instance:
 A Cone has 5 points
 A Cube has 3 points
 A Cylinder has 2 points
-Then, interact with these objects, pick them up, and print out the accumulated points and number of pickups either as a log, on-screen debug, or create a UI if you have time.
+Then, interact with these objects, pick them up, and print out the accumulated points and the number of pickups either as a log, on-screen debug or create a UI if you have time.
+
+
+Task 2: 
+
+Create a road, you can start exploring epic Gamestore for road and vehicle models. 
+drive your vehicle ( or cube) and try to avoid drops that are falling from the sky on the road in a random manner.
+Your car has a HP of 100, every time you hit a drop minus 1 point from the HP. 
